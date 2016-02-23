@@ -1,0 +1,7 @@
+- name: deploy nginx to target machines
+  hosts: sonata-dcpt
+  sudo: yes
+
+  roles:
+
+  - nginx
