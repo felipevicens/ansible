@@ -1,0 +1,28 @@
+---
+
+- name: upgrade all packages to the latest version
+  apt: upgrade=yes
+
+- name: upgrade all repository information
+  apt: update_cache=yes
+
+- name: install common software DEB packages, eg, SAR, NMAP, HTOP, GIT
+  apt: 
+    name: "{{ item }}"
+    state: present
+  with_items: 
+  - sysstat
+  - nmap
+  - tree
+  - git
+
+- name: install Debian Development Tools
+  apt: name=build-essential state=present update_cache=yes
+
+- name: install Python packages for SElinux
+  apt: name={{ item }} state=present
+  with_items:
+  - python-selinux
+  - libsemanage-common
+  - python-semanage
+  - selinux-utils

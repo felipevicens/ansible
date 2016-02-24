@@ -1,0 +1,18 @@
+---
+# DevOps users
+- name: create Sonata groups
+  group: 
+    name: "{{ son_group }}"
+    state: present
+  tags: 
+    - sonata
+    - docker
+
+- name: add Sonata users to groups
+  user:
+    name: "{{ son_users }}"
+    groups: "{{ son_group }}"
+    append: yes
+  tags:
+    - sonata
+    - docker

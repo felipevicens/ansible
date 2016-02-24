@@ -1,0 +1,28 @@
+---
+
+- name: update all RPM packages to the latest version
+  yum: 
+    name: '*'
+    state: present
+    update_cache: yes
+
+- name: install common software RPM packages, eg, SAR, NMAP, HTOP, GIT
+  yum: 
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  with_items: 
+    - sysstat
+    - nmap
+    - tree
+    - git
+
+- name: install Redhat Development Tools
+  yum: name="@Development tools" state=present update_cache=yes
+
+- name: install Python packages for SElinux
+  yum: name={{ item }} state=present
+  with_items:
+  - libselinux-python
+  - libsemanage-python
+

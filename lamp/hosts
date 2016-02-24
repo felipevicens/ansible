@@ -1,0 +1,15 @@
+# use the format: 
+# <srv-alias>  ansible_ssh_hos=<your-IP-address>
+
+[centos4lamp]
+cen6lamp01 ansible_ssh_host=10.112.77.32
+cen6lamp02 ansible_ssh_host=10.112.77.33
+
+[ubuntu4lamp]
+ub14lamp03 ansible_ssh_host=10.112.77.43
+ub14lamp04 ansible_ssh_host=10.112.77.45
+
+[lamp:children]
+centos4lamp
+ubuntu4lamp
+

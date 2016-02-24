@@ -1,0 +1,9 @@
+---
+# vars file for php
+# PHP
+iface: '{{ ansible_default_ipv4.interface }}'
+#
+repository: https://github.com/bennojoy/mywebapp.git
+#
+webapp_version: 351e47276cc66b018f4890a04709d4cc3d3edb0d
+#

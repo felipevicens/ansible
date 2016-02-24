@@ -1,0 +1,14 @@
+---
+
+- include: redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- include: debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: verify if SElinux is running
+  command: getenforce
+  register: sestatus
+  changed_when: false
+
+#- include: son-users.yml

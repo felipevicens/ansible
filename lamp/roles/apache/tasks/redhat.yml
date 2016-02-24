@@ -1,0 +1,16 @@
+---
+# tasks file for apache
+
+# RHEL/CentOS
+- name: install HTTPD if CentOS
+  yum: name=httpd state=present update_cache=yes
+
+- name: start HTTPD, if CentOS
+  service: name=httpd state=started enabled=yes
+
+- name: install Python packages
+  yum: name={{ item }} state=present
+  with_items:
+  - libselinux-python
+  - libsemanage-python
+

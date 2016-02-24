@@ -1,0 +1,16 @@
+---
+# vars file for common
+
+vars: 
+  is_centos: "'{{ ansible_distribution|lower }}' == 'centos'"
+  is_redhat: "'{{ ansible_distribution|lower }}' == 'redhat'"
+  is_ubuntu: "'{{ ansible_distribution|lower }}' == 'ubuntu'"
+
+  son_users:
+  - sonata
+  - docker
+
+  proxy_env:
+    http_proxy: "http://192.168.89.32:11111/"
+
+  apt_cache_update:

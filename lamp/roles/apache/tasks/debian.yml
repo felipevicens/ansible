@@ -1,0 +1,15 @@
+---
+# tasks file for apache
+
+- name: install APACHE2 if Ubuntu
+  apt: name=apache2 state=present update_cache=yes
+
+- name: start APACHE2, if Ubuntu
+  service: name=apache2 state=started enabled=yes
+
+- name: install Python packages
+  apt: name={{ item }} state=present
+  with_items:
+  - python-selinux
+  - libsemanage-common
+  - python-semanage

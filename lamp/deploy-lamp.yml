@@ -1,0 +1,14 @@
+---
+- name: deploy a LAMP stack     
+  hosts: docker
+  sudo: yes
+
+  vars:
+    proxy_env:
+      http_proxy: http://192.168.89.32:11111
+
+  roles:
+#  - common
+#  - mysql
+  - apache
+  - php
