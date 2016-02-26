@@ -1,0 +1,10 @@
+---
+# Redhat
+- name: UPGRD PCKGs | play to upgrade packages to the latest version
+  yum: name='*' state=present update_cache=yes
+  when: ansible_os_family == "RedHat"
+
+# Ubuntu
+- name: upgrade all packages to the latest version
+  apt: upgrade=yes update_cache=yes
+  when: ansible_os_family == "Debian"

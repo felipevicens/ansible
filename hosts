@@ -1,0 +1,4 @@
+[son-dcpt]
+<your srv alias>  ansible_ssh_host=<your IP address goes here> ansible_ssh_port=<if not 22>
+<your srv alias>  ansible_ssh_host=<your IP address goes here> ansible_ssh_port=<if not 22>
+

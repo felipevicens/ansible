@@ -1,0 +1,7 @@
+---
+# vars file for common
+epel_release:
+  "4": 10
+  "5": 4
+  "6": 8
+  "7": 5

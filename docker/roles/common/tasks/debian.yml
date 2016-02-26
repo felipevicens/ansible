@@ -1,0 +1,24 @@
+---
+# tasks file for common
+
+- name: DOCKER > install Docker dependency libraries
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+  - git
+  - python-pip
+  - apparmor
+
+- name: on Trusty it’s recommended to install the linux-image-extra kernel package
+  apt: name=linux-image-extra-$(uname -r)
+
+- name: reboot server
+  command: reboot
+
+- name: wait on the local Ansible Control Center for target hosts to go live
+  local_action:
+    module: wait_for
+      host={{ inventory_hostname }}
+      port=22
+      delay=1
+      timeout=60
+

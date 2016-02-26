@@ -1,0 +1,12 @@
+---
+- name: REBOOT SRVs | play to reboot target servers
+  command: reboot
+
+- name: wait on the local Ansible Control Center for target hosts to go live
+  local_action:
+    module: wait_for
+      host={{ inventory_hostname }}
+      port=22
+      delay=1
+      timeout=60 
+# wait for a minute

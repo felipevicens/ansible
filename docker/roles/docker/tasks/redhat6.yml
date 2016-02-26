@@ -1,0 +1,6 @@
+---
+- name: DOCKER > installing Docker on RHEL/CentOS 6 machines
+  yum: name=docker.io state=present update_cache=yes 
+
+- name: DOCKER > starting Docker services
+  service: name=docker state=started enabled=yes

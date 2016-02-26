@@ -1,0 +1,18 @@
+---
+# tasks file for epel
+- name: Install EPEL repository
+  yum:
+    name: "{{ epel_repo_url }}"
+    state: present
+  register: result
+  until: '"failed" not in result'
+  retries: 5
+  delay: 10
+  when: ansible_os_family == "RedHat"
+
+- name: Import EPEL GPG key.
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+  when: ansible_os_family == "RedHat"
+

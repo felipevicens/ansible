@@ -1,0 +1,11 @@
+---
+#RHEL/CentOS
+- name: REMOVE SVCs | play to remove installed services on CentOS machines
+  yum: name={{ svc_name }} state=absent update_cache=yes
+  when: ansible_os_family == "RedHat"
+
+# Debian/Ubuntu
+- name: REMOVE SVCs | play to remove installed services on Ubuntu machines
+  apt: name={{ svc_name }} state=absent update_cache=yes
+  when: ansible_os_family == "Debian"
+

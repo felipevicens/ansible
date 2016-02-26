@@ -1,0 +1,10 @@
+---
+- name: deploy Docker to CentOS and/or Ubuntu machines
+  hosts: docker
+  sudo: yes
+#  environment:
+#    http_proxy: http://192.168.89.32:11111
+  roles:
+  - common
+  - epel
+  - docker

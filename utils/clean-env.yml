@@ -1,0 +1,13 @@
+---
+- name: CLEAN ENV | playbook to remove previous installed applications,like Apache, MySQL 
+  hosts: docker
+  sudo: yes
+  tasks: 
+
+  - include: 1-stop-svcs.yml
+
+  - include: 2-remove-svcs.yml
+
+  - include: 3-upgrd-pckgs.yml
+
+  - include: 4-reboot-srvs.yml

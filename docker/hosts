@@ -1,0 +1,14 @@
+# use the format: 
+# <srv-alias>  ansible_ssh_host=<remote-IP-addresses>
+
+[cen4docker]
+cen6docker01 ansible_ssh_host=10.112.77.32
+cen6docker02 ansible_ssh_host=10.112.77.33
+
+[ubu4docker]
+ub14docker03 ansible_ssh_host=10.112.77.43
+ub14docker04 ansible_ssh_host=10.112.77.45
+
+[docker:children]
+cen4docker
+ubu4docker

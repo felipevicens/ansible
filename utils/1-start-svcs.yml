@@ -1,0 +1,10 @@
+---
+# usage: $ ansible-playbook 1-stop-svcs.yml -e svc_name=<httpd>
+- name: START SVC's - provide service name as an external parameter
+  hosts: docker
+  sudo: yes
+  tasks: 
+
+  - name: start services
+    service: name={{ svc_name }} state=started 
+

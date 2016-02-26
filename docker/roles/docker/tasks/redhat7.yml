@@ -1,0 +1,9 @@
+---
+- name: DOCKER > add YUM repo
+  copy: src=/tmp/docker.repo dest=/etc/yum.repos.d/
+
+- name: DOCKER | installing Docker on RHEL/CentOS 7 machines 
+  yum: name=docker-engine state=present update_cache=yes
+ 
+- name: DOCKER > starting Docker services on RHEL/CentOS 7 machines
+  service: name=docker state=started enabled=yes
